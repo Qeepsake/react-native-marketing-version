@@ -16,7 +16,6 @@ export async function setAndroidMarketingVersion(versionText) {
       `Will set Android version name to ${chalk.bold.underline(versionText)}`
     )
   );
-  console.log("-------------------------------------------------------");
 
   const buildGradle = fs.readFileSync(buildGradlePath, "utf8");
   const newBuildGradle = buildGradle.replace(
