@@ -1,5 +1,5 @@
 {
-  "name": "react-native-set-version",
+  "name": "@qeepsake/react-native-marketing-version",
   "version": "1.1.2",
   "description": "Set the version in package.json, android/app/build.gradle and info.plist",
   "license": "MIT",
@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/novom/react-native-set-version"
+    "url": "https://github.com/Qeepsake/react-native-marketing-version"
   },
   "keywords": [
     "version",
@@ -25,18 +25,21 @@
     "semver"
   ],
   "bugs": {
-    "url": "https://github.com/novom/react-native-set-version/issues"
+    "url": "https://github.com/Qeepsake/react-native-marketing-version/issues"
   },
-  "homepage": "https://github.com/novom/react-native-set-version#readme",
+  "homepage": "https://github.com/Qeepsake/react-native-marketing-version#readme",
   "main": "index.js",
   "author": "Novom Interactive",
   "scripts": {
-    "prepublishOnly": "yarn build",
+    "prepublishOnly": "pinst --disable && yarn build",
     "build": "babel src --out-dir build --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\"",
     "lint": "eslint .",
     "start": "node .src/index.js",
     "test": "yarn lint & yarn unitTests",
-    "unitTests": "jest --runInBand"
+    "unitTests": "jest --runInBand",
+    "postpublish": "pinst --enable",
+    "pre-commit": "lint-staged",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "chalk": "^2.4.2",
@@ -46,11 +49,18 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "5.3.0",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.14.0",
-    "jest": "^24.8.0"
+    "husky": "^7.0.4",
+    "jest": "^24.8.0",
+    "lint-staged": "^12.3.3",
+    "pinst": "^2.1.6",
+    "prettier": "^2.5.1",
+    "semantic-release": "^19.0.2"
   }
 }
