@@ -21,7 +21,7 @@ export function setPackageVersion(versionText) {
     packageJSON.version = versionText;
     fs.writeFileSync(
       pathToPackageJson,
-      `${JSON.stringify(packageJSON, null, "\t")}\n`
+      `${JSON.stringify(packageJSON, null, 2)}\n`
     );
     console.log(
       chalk.green(`Version replaced in ${chalk.bold("package.json")}`)
